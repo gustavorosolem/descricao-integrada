@@ -1,0 +1,813 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Editando Produto - Loja Integrada</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="produto">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="painel.html">Descrição Integrada</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <p class="navbar-text">Crie descrições de forma fácil para sua loja</p>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:;" id="logout">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Edição de Produto <small></small></h1>
+                    <form class="form-horizontal" id="edit-prod">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input id="nome" name="nome" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">SKU</label>
+                            <div class="col-sm-10">
+                                <input id="sku" name="sku" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" style="margin-top: 30px;">
+                            <li class="active"><a href="#generico" data-toggle="tab">Genérico</a></li>
+                            <li><a href="#veiculos" data-toggle="tab">Veículos</a></li>
+                            <li><a href="#imoveis" data-toggle="tab">Imóveis</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content" style="padding-top: 20px;">
+                            <div class="tab-pane active" id="generico">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Descrição</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" rows="5" id="descr" name="descr"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane custom" id="veiculos">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Localização</label>
+                                    <div class="col-sm-10">
+                                        <select id="localizacao" name="localizacao" class="form-control">
+                                            <option value=""></option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="AP">Amapá</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espirito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="PR">Paraná</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="TO">Tocantins</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Telefone contato</label>
+                                    <div class="col-sm-10">
+                                        <input id="contato" name="contato" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Combustível</label>
+                                    <div class="col-sm-10">
+                                        <select id="combustivel" name="combustivel" class="form-control">
+                                            <option value=""></option>
+                                            <option value="">Álcool</option>
+                                            <option value="">Álcool e GNV</option>
+                                            <option value="">Diesel</option>
+                                            <option value="">Gasolina</option>
+                                            <option value="">Gasolina, Álcool e GNV (tetraflex)</option>
+                                            <option value="">Gasolina e Álcool (flex)</option>
+                                            <option value="">Gasolina e Elétrico (híbrido)</option>
+                                            <option value="">Gasolina e GNV</option>
+                                            <option value="">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Portas</label>
+                                    <div class="col-sm-10">
+                                        <select id="portas" name="portas" class="form-control">
+                                            <option value=""></option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4</option>
+                                            <option value="">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Kilômetros</label>
+                                    <div class="col-sm-10">
+                                        <input id="Kilometros" name="Kilometros" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Ano</label>
+                                    <div class="col-sm-10">
+                                        <input id="Ano" name="Ano" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Versão</label>
+                                    <div class="col-sm-10">
+                                        <input id="Versao" name="Versao" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Cor</label>
+                                    <div class="col-sm-10">
+                                        <input id="Cor" name="Cor" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Direção</label>
+                                    <div class="col-sm-10">
+                                        <select id="direcao" name="direcao" class="form-control">
+                                            <option value=""></option>
+                                            <option value="">Assistida</option>
+                                            <option value="">Elétrica</option>
+                                            <option value="">Hidráulica</option>
+                                            <option value="">Mecânica</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Transmissão</label>
+                                    <div class="col-sm-10">
+                                        <select id="transmissao" name="transmissao" class="form-control">
+                                            <option value=""></option>
+                                            <option value="">Automático</option>
+                                            <option value="">Manual</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Motor</label>
+                                    <div class="col-sm-10">
+                                        <input id="Motor" name="Motor" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group cb">
+                                    <label class="col-sm-2 control-label">Segurança</label>
+                                    <div class="col-sm-10">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Break light
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Freios ABS
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Airbag motorista
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Airbag laterais
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Airbag passageiro
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Airbag de cortina
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Alarme
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Blindado
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Controle de velocidade
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Desembaçador traseiro
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Tração 4x4
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Encosto de cabeça traseiro
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Controle de estabilidade
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Farol de neblina
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Faróis de neblina dianteiros
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Faróis de xenon
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Faróis de neblina traseiros
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Distribuição eletrônica de frenagem
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Imobilizador de motor
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Rodas de liga leve
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Travas elétricas
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Tração
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Encostro traseiro
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group cb">
+                                    <label class="col-sm-2 control-label">Conforto</label>
+                                    <div class="col-sm-10">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Abertura interna do porta-malas
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Ar condicionado
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Alarme de luzes acesas
+                                        </label><label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Ar quente
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Bancos elétricos
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Banco motorista com regulagem de altura
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Banco traseiro retrátil
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Sensor de chuva
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Computador de bordo
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Porta copos
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Bancos em couro
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Retrovisores elétricos
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Sensor de estacionamento
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Faróis com regulagem interna
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            GPS
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Piloto automático
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Sensor de luz
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Teto solar
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Trava elétrica central
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Vidros elétricos
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group cb">
+                                    <label class="col-sm-2 control-label">Som</label>
+                                    <div class="col-sm-10">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            AM/FM
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Bluetooth
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Carregador de CD
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            CD player
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Controle de som no volante
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            DVD player
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Entrada auxiliar
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Cd player com MP3
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Rádio toca fitas
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Cartão SD
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Entrada USB
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group cb">
+                                    <label class="col-sm-2 control-label">Exterior</label>
+                                    <div class="col-sm-10">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Capota Marítima
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Limpador traseiro
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Pára-choques na cor do veículo
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Vidros verdes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Protetor de Caçamba
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Quebra-mato
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Santo antônio
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Suporte para estepe
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane custom" id="imoveis">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Tipo</label>
+                                    <div class="col-sm-10">
+                                        <select id="im-tipo" name="im-tipo" class="form-control">
+                                            <option value=""></option>
+                                            <option value="">Apartamento</option>
+                                            <option value="">Casa</option>
+                                            <option value="">Comercial - Industrial</option>
+                                            <option value="">Flat - Apart Hotel</option>
+                                            <option value="">Terrenos - Lotes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Objetivo</label>
+                                    <div class="col-sm-10">
+                                        <select id="im-" name="im-" class="form-control">
+                                            <option value=""></option>
+                                            <option value="">Aluguel</option>
+                                            <option value="">Temporada</option>
+                                            <option value="">Venda</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Estado</label>
+                                    <div class="col-sm-10">
+                                        <select id="im-localizacao" name="im-localizacao" class="form-control">
+                                            <option value=""></option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="AP">Amapá</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espirito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="PR">Paraná</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="TO">Tocantins</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Endereço Completo</label>
+                                    <div class="col-sm-10">
+                                        <input id="im-end" name="im-end" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Telefone</label>
+                                    <div class="col-sm-10">
+                                        <input id="im-telefone" name="im-telefone" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <fieldset>
+                                    <legend>Descreva seu imóvel</legend>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Banheiros</label>
+                                        <div class="col-sm-10">
+                                            <select id="im-banheiros" name="im-banheiros" class="form-control">
+                                                <option value=""></option>
+                                                <option value="">0</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">Mais de 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Dormitórios</label>
+                                        <div class="col-sm-10">
+                                            <select id="im-dorm" name="im-dorm" class="form-control">
+                                                <option value=""></option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">Mais de 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Idade do imóvel</label>
+                                        <div class="col-sm-10">
+                                            <select id="im-idade" name="im-idade" class="form-control">
+                                                <option value=""></option>
+                                                <option value="">Novo</option>
+                                                <option value="">Até 5 Anos</option>
+                                                <option value="">Até 10 Anos</option>
+                                                <option value="">Até 20 Anos</option>
+                                                <option value="">Mais de 20 Anos</option>
+                                                <option value="">Não Informado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Área útil (m²)</label>
+                                        <div class="col-sm-10">
+                                            <input id="im-util" name="im-util" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Área total (m²)</label>
+                                        <div class="col-sm-10">
+                                            <input id="im-total" name="im-total" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Andares</label>
+                                        <div class="col-sm-10">
+                                            <select id="im-andares" name="im-andares" class="form-control">
+                                                <option value=""></option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">Mais de 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Suítes</label>
+                                        <div class="col-sm-10">
+                                            <select id="im-suites" name="im-suites" class="form-control">
+                                                <option value=""></option>
+                                                <option value="">Não tem</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">Mais de 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Mobiliado</label>
+                                        <div class="col-sm-10">
+                                            <select id="im-mobiliado" name="im-mobiliado" class="form-control">
+                                                <option value=""></option>
+                                                <option value="">Sim</option>
+                                                <option value="">Não</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Qtd de vagas de garagem</label>
+                                        <div class="col-sm-10">
+                                            <select id="im-vagas" name="im-vagas" class="form-control">
+                                                <option value=""></option>
+                                                <option value="">Não tem</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">Mais de 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Valor do condomínio</label>
+                                        <div class="col-sm-10">
+                                            <input id="im-condominio" name="im-condominio" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Valor do IPTU</label>
+                                        <div class="col-sm-10">
+                                            <input id="im-iptu" name="im-iptu" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group cb">
+                                        <label class="col-sm-2 control-label">Acomodações e lazer</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Ar condicionado por ambiente
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Ar condicionado central
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Alarme
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Armários embutidos
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Campo de futebol
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Internet
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Jacuzzi
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Jardim
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Churrasqueira
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Quintal
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Piscina
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Playground
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Portão eletrônico
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Quadra poliesportiva
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Sala de ginástica
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Sauna
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Telefone
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                TV a cabo
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Segurança
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group cb">
+                                        <label class="col-sm-2 control-label">Características da planta</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Biblioteca
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Cozinha
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Copa
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Depósito privativo
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Quarto/Banheiro de empregada
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Escritório
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Lareira
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Área de serviço
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Sala de estar
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Sala de jantar
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Sala íntima
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Sótão
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Terraço
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Lavabo
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">
+                                                Closet
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <a href="painel.html" class="btn">Voltar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+        <script src="js/TweenLite.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/ajax.js"></script>
+    </body>
+</html>

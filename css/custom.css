@@ -1,0 +1,9 @@
+/* Login */
+body.login { background: url(../img/stardust.png); background-color: #444349; background: url(../img/stars.png),url(../img/stardust.png); }
+.login .vertical-offset-100 { padding-top: 100px; }
+
+/* Listagem Produtos */
+h1 { margin-bottom: 30px; }
+
+/* Produto */
+.cb .checkbox-inline { min-width: 280px; margin: 0; }
