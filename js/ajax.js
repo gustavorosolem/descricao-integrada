@@ -1,7 +1,8 @@
-var token = "?chave_api=" + $.cookie('chave_api') + "&chave_aplicacao=" + $.cookie('chave_aplicacao');
+var chave_aplicacao = "7a7134e1-dfc3-4922-b145-eb8b605171aa";
+var token = "?chave_api=" + $.cookie('chave_api') + "&chave_aplicacao=" + chave_aplicacao;
 
 $(document).ready(function(){
-    if(!$.cookie('chave_api') && !$.cookie('chave_aplicacao')) {
+    if(!$.cookie('chave_api')) {
         location.href = "index.html";
     }
     /* Listagem de Produtos */
@@ -14,7 +15,7 @@ $(document).ready(function(){
             crossDomain: true,
             processData: true,
             error: function(e) {
-                alert("Ocorreu um erro, tente novamente.");
+                //alert("Ocorreu um erro, tente novamente.");
                 console.log(e);
             },
             success: function(data) {
@@ -57,7 +58,7 @@ $(document).ready(function(){
             'sku': $('#sku').val(),
             'descricao_completa': gerar_descricao(),
             'chave_api': $.cookie('chave_api'),
-            'chave_aplicacao': $.cookie('chave_aplicacao')
+            'chave_aplicacao': chave_aplicacao
         }
         var metod = (id != "") ? "PUT" : "POST";
         var prod_id = (id != "") ? id + token : token;

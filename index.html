@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Template de Produto - Loja Integrada</title>
+        <title>Descrição Integrada</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/custom.css" rel="stylesheet">
         <!--[if lt IE 9]>
@@ -26,9 +26,7 @@
                                     <div class="form-group">
                                         <input class="form-control api" placeholder="Chave API" name="api" type="text">
                                     </div>
-                                    <div class="form-group">
-                                        <input class="form-control app" placeholder="Chave Aplicação" name="app" type="text">
-                                    </div>
+                                    <a href="#ajuda" data-toggle="modal" class="pull-right">Não sei minha API</a>
                                     <div class="checkbox">
                                         <label>
                                             <input name="remember" class="remember" type="checkbox" value="Lembrar"> Lembrar dados
@@ -38,6 +36,26 @@
                                 </fieldset>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ajuda" tabindex="-1" role="dialog" aria-labelledby="ajuda" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="ajuda">Onde encontrar minha Chave API</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Acesse o admin da sua loja</li>
+                            <li>Navegue até a página: Configurações > Configurações da loja</li>
+                        </ul>
+                        <img src="img/ajuda.jpg" alt="" style="max-width: 100%;" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>

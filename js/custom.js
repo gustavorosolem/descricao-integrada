@@ -1,6 +1,6 @@
 $(document).ready(function(){
     if($('body.login').length) {
-        if($.cookie('chave_api') && $.cookie('chave_aplicacao')) {
+        if($.cookie('chave_api')) {
             location.href = "painel.html";
         } else {
             $(document).mousemove(function(e){
@@ -12,7 +12,7 @@ $(document).ready(function(){
                 });
             });
             $("#login").submit(function(event) {
-                if($('.api').val() === "" || $('.app').val() === "") {
+                if($('.api').val() === "") {
                     alert('Todos os campos devem ser preenchidos corretamente');
                 } else {
                     var expire_time;
@@ -22,7 +22,6 @@ $(document).ready(function(){
                         expire_time = 1;
                     }
                     $.cookie('chave_api', $('.api').val(), { expires: expire_time, path: '/' });
-                    $.cookie('chave_aplicacao', $('.app').val(), { expires: expire_time, path: '/' });
                     location.href = "painel.html";
                 }
                 event.preventDefault();
@@ -33,6 +32,5 @@ $(document).ready(function(){
 
 $("#logout").click(function() {
     $.removeCookie('chave_api', { path: '/' });
-    $.removeCookie('chave_aplicacao', { path: '/' });
     location.href = "index.html";
 });
