@@ -1,4 +1,4 @@
-var chave_aplicacao = "7a7134e1-dfc3-4922-b145-eb8b605171aa";
+var chave_aplicacao = "";
 var token = "?chave_api=" + $.cookie('chave_api') + "&chave_aplicacao=" + chave_aplicacao;
 
 $(document).ready(function(){
@@ -28,7 +28,7 @@ $(document).ready(function(){
         });
     }
     
-    /* Edição de Produto */
+    /* EdiÃ§Ã£o de Produto */
     var id = location.hash;
     id = id.replace("#", "");
     if($('.produto').length) {
